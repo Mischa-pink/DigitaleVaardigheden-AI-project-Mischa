@@ -28,3 +28,47 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 });
+
+// SEARCH BAR (auto-updating)
+document.addEventListener("DOMContentLoaded", () => {
+    const searchBar = document.getElementById("searchBar");
+    const searchResults = document.getElementById("searchResults");
+    const popupMenu = document.getElementById("popupMenu");
+
+    if (!searchBar || !searchResults || !popupMenu) return;
+
+    // Get all game links from the popup menu (skips "Home")
+    const gameLinks = Array.from(popupMenu.querySelectorAll("a"))
+        .filter(a => a.getAttribute("href") !== "index.html")
+        .map(a => ({
+            name: a.textContent.trim(),
+            link: a.getAttribute("href")
+        }));
+
+    searchBar.addEventListener("input", () => {
+        const query = searchBar.value.toLowerCase();
+        searchResults.innerHTML = "";
+
+        if (query.length === 0) {
+            searchResults.style.display = "none";
+            return;
+        }
+
+        const filtered = gameLinks.filter(game =>
+            game.name.toLowerCase().includes(query)
+        );
+
+        if (filtered.length === 0) {
+            searchResults.innerHTML = "<p>No games found</p>";
+        } else {
+            filtered.forEach(game => {
+                const a = document.createElement("a");
+                a.href = game.link;
+                a.textContent = game.name;
+                searchResults.appendChild(a);
+            });
+        }
+
+        searchResults.style.display = "block";
+    });
+});

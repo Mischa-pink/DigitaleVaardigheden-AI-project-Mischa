@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pink Games — Slope</title>
+
+    <link rel="icon" type="image/png" href="logo.png">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+
+<body>
+
+<header class="game-header">
+    <img src="logo.png" alt="Pink Games Logo" class="logo">
+</header>
+
+<div class="hamburger-menu" onclick="toggleMenu()">
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
+
+<div id="popupMenu" class="popup-menu">
+    <a href="game1.html">Random Basket</a>
+    <a href="game2.html">Sans Fight</a>
+    <a href="game3.html">Cluster Rush</a>
+    <a href="game4.html">Slope</a>
+</div>
+
+<div class="back-menu-container">
+    <a href="index.html" class="back-menu-btn">Main Menu</a>
+</div>
+
+<main class="game-page">
+    <h2 class="game-title">Slope</h2>
+
+    <div class="game-frame">
+        <iframe
+                src="https://slope-3d.io/game/slope/"
+                class="game-embed"
+                frameborder="0"
+                allowfullscreen>
+        </iframe>
+    </div>
+</main>
+
+<footer>
+    <p>© 2026 Pink Games — Created with AI</p>
+</footer>
+
+</body>
+</html>
