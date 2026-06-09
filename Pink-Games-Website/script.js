@@ -72,3 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
         searchResults.style.display = "block";
     });
 });
+
+function openMinecraftFullscreen() {
+    window.open("minecraft/index.html", "_blank");
+}
