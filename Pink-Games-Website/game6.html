@@ -3,29 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pink Games — Minecraft (EaglerCraft)</title>
+    <title>Pink Games — There Is No Game</title>
 
     <link rel="icon" type="image/png" href="logo.png">
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
 
     <style>
-        /* 16:9 aspect ratio for Minecraft window */
-        .minecraft-frame {
-            position: relative;
+        /* Safe centering that won't override your site */
+        .game-center-wrapper {
             width: 100%;
-            max-width: 1100px; /* adjust if you want bigger or smaller */
-            margin: 0 auto;
-            padding-top: 56.25%; /* 16:9 ratio */
+            display: flex;
+            justify-content: center;
         }
 
-        .minecraft-frame iframe {
+        .game-frame {
+            position: relative;
+            width: 100%;
+            max-width: 1100px;
+            padding-top: 56.25%; /* 16:9 */
+            border-radius: 20px;
+            overflow: hidden;
+            background: var(--pink-light);
+            border: 3px solid var(--pink-dark);
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .game-frame iframe {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
             border: none;
+            border-radius: 20px;
+        }
+
+        .fullscreen-container {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .fullscreen-btn {
+            border-radius: 12px;
         }
     </style>
 </head>
@@ -57,20 +77,21 @@
 </div>
 
 <main class="game-page">
-    <h2 class="game-title">Minecraft (EaglerCraft)</h2>
+    <h2 class="game-title">There Is No Game</h2>
 
-    <div class="minecraft-frame">
-        <iframe
-                src="minecraft/index.html"
-                allowfullscreen>
-        </iframe>
+    <!-- SAFE CENTER WRAPPER -->
+    <div class="game-center-wrapper">
+        <div class="game-frame">
+            <iframe src="thereisnogame/index.html"></iframe>
+        </div>
     </div>
 
     <div class="fullscreen-container">
-        <button class="fullscreen-btn" onclick="openMinecraftFullscreen()">Fullscreen</button>
+        <button class="fullscreen-btn" onclick="window.open('thereisnogame/index.html', '_blank')">
+            Fullscreen
+        </button>
     </div>
 </main>
-
 
 <footer>
     <p>© 2026 Pink Games — Created with AI</p>
